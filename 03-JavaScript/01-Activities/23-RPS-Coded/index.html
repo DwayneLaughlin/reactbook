@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    RPS Bitches!
+</body>
+
+<script>
+    var wins = 0;
+    var loses = 0;
+    var ties = 0;
+
+    var game = function () {
+        var options = ["r", "p", "s"];
+
+        // player input
+        var playerInput = prompt("Enter r (rock), p (paper), or s (scissors)").toLocaleLowerCase();
+
+        // computer input
+        var compRandom = Math.floor(Math.random() * 3);
+        var compInput = options[compRandom];
+
+        alert("The computer chose " + compInput);
+        // logic
+        if (playerInput == "r" || playerInput == "p" || playerInput == "s") {
+
+            if ((playerInput == "r" && compInput == "s") || (playerInput == "p" && compInput == "r") || (playerInput == "s" && compInput == "p")) {
+                wins++;
+                alert("You've won " + wins + "games.")
+            } else if (playerInput == compInput) {
+                ties++;
+                alert("You've tied " + ties + " games.")
+            } else {
+                loses++;
+                alert("You've lost " + loses + "games.")
+            }
+        } else {
+            loses++;
+            alert("You lose because you can't follow simple directions.  You've lost " + loses + " times.")
+        }
+
+
+        game();
+    }
+
+    game();
+
+    // output
+</script>
+
+</html>
