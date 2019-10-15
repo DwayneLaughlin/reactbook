@@ -12,14 +12,14 @@
 
     // EXAMPLE ONE:
     // --------------------------------------------------
-    // What is "this" going to print?
+    // What is "this" going to print?THE GLOBAL OBJECT (DOCUMENT! ACTUALLY WINDOW)
 
     console.log(this);
 
 
     // EXAMPLE TWO:
     // --------------------------------------------------
-    // What is "this" going to print?
+    // What is "this" going to print? (!ACTUALLY WINDOW AGAIN)
 
     function myFunction() {
       console.log(this);
@@ -28,7 +28,7 @@
 
     // EXAMPLE THREE (IMPORTANT):
     // --------------------------------------------------
-    // What is "someObj.say()" going to print?
+    // What is "someObj.say()" going to print? RED HAT
 
     var someObj = {
       name: "Red Hat",

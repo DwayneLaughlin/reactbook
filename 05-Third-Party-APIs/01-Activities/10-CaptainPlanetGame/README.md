@@ -8,6 +8,7 @@
 
 * Examples:
   * Click to… Stretch Captain Planet!
+  
   * Click to… Trigger a maniacal laugh!
   * Click to… Create clones of Captain Planet!
   * Click to… Create fire or water (hint: images)!

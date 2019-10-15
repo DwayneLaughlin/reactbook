@@ -78,7 +78,93 @@
 $(document).ready(function() {
 
 // Your code here...
+var currentEntry = 0;
+var firstNumber = 0;
+var secondNumber = 0;
+var operator = '';
+var result = 0;
 
+
+$('#button-1').click(function() {
+  currentEntry = Number(this.innerText);
+  alert(currentEntry);
+  entryCheck();
+});
+$('#button-2').click(function() {
+  currentEntry = Number(this.innerText);
+  entryCheck();
+});
+$('#button-3').click(function() {
+  currentEntry = Number(this.innerText);
+  entryCheck();
+});
+$('#button-4').click(function() {
+  currentEntry = Number(this.innerText);
+  entryCheck();
+});
+$('#button-5').click(function() {
+  currentEntry = Number(this.innerText);
+  entryCheck();
+});
+$('#button-6').click(function() {
+  currentEntry =Number(this.innerText);
+  entryCheck();
+});
+$('#button-7').click(function() {
+  currentEntry = Number(this.innerText);
+  entryCheck();
+});
+$('#button-8').click(function() {
+  currentEntry = Number(this.innerText);
+  entryCheck();
+});
+$('#button-9').click(function() {
+  currentEntry = Number(this.innerText);
+  entryCheck();
+});
+$('#button-0').click(function() {
+  currentEntry = Number(this.innerText);
+  entryCheck();
+});
+$('#button-plus').click(function() {
+  currentEntry = this.value;
+  entryCheck();
+});
+$('#button-minus').click(function() {
+  currentEntry = this.value;
+  entryCheck();
+});
+$('#button-multiply').click(function() {
+  currentEntry = this.value;
+  entryCheck();
+});
+$('#button-divide').click(function() {
+  currentEntry = this.value;
+  entryCheck();
+});
+$('#button-power').click(function() {
+  currentEntry = this.value;
+  entryCheck();
+});
+$('#button-equal').click(function() {
+  currentEntry = this.value;
+  entryCheck();
+});
+$('#button-clear').click(function() {
+  currentEntry = this.value;
+  entryCheck();
+});
+
+function entryCheck() {
+  if (Number.isInteger(currentEntry)) {
+    $("#first-number").html(currentEntry)
+  }
+  
+  function operatorCheck() {
+  if ((currentEntry = '&minus;')) {
+  }
+}
+}
 
 });
 

@@ -22,7 +22,7 @@
         // What will this print?
         console.log("Name:", this.name, "Color:", this.color, "Age:", this.age);
 
-        var nestedFunction = function() {
+        nestedFunction = function() {
           console.log("inside nestedFunction()");
 
           // What will this print?
@@ -32,12 +32,13 @@
           console.log("Name:", this.name, "Color:", this.color, "Age:", this.age);
         };
 
-        nestedFunction();
+        cat.nestedFunction();
       }
     };
 
     // calls the printInfo function. Which subsequently calls the nestedFunction()
-    cat.printInfo();
+    printInfo();
+    
 
 </script>
 

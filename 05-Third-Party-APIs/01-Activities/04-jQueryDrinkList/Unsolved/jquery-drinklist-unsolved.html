@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>JavaScript Content!</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
 
@@ -24,11 +25,13 @@
       "Ice Latte: $6",
       "Ice Tea: $4"
     ];
-
+    var drink = $("#drink-options")
     // Using JavaScript programmatically append each drinkList item to the "drink-options" div
     // HINT: you will need a for loop to go over each element in the list
-
-
+  i=0
+  for(i=0;i<drinkList.length;i++) {
+    $("<p>").html(drinkList);
+  }
   </script>
 
 </body>

@@ -18,6 +18,7 @@
       function inside(y) {
 
         console.log(x + y);
+        console.log("The value of 'x' outside 'outside()' is: " + x);
       }
 
       return inside;
@@ -28,10 +29,10 @@
 
     // What does this return?
     insideOut(2);
-
+    console.log(insideOut);
     // Uncaught ReferenceError: x is not defined.
     // How does insideOut have access to x?
-    console.log("The value of 'x' outside 'outside()' is: " + x);
+    
 
   </script>
 
