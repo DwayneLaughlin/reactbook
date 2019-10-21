@@ -13,12 +13,15 @@
     var title = "space+jam";
     var queryURL = "https://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy";
 
+    var myObj = {};
+
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function(response) {
       console.log(response);
-      console.log(response.Runtime);
+    
+      console.log(response.Ratings[1].Source)
     });
 // ---------------------------------------------------------
 

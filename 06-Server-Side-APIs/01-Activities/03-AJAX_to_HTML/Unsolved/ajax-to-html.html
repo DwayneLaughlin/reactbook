@@ -27,13 +27,23 @@
           <td>Ellen Burstyn, Matthew McConaughey, Mackenzie Foy, John Lithgow</td>
         </tr>
         <!-- Insert additional movie rows here -->
+        <tr>
+          <td>Mr. Nobody</td>
+          <td>2009</td>
+          <td>Jared Leto, Sarah Polley, Diane Kruger, Linh Dan Pham</td>
+        </tr>
+        <tr>
+          <td>Breaking Bad</td>
+          <td>2008-2013</td>
+          <td>Bryan Cranston, Anna Gunn, Aaron Paul, Dean Norris</td>
+        </tr>
       </tbody>
     </table>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
     // The below code fills in the first row of the table
-    var movie = "Mr. Nobody";
+    var movie = "Breaking Bad";
     var queryURL = "https://www.omdbapi.com/?t=" + movie + "&apikey=trilogy";
 
     $.ajax({
@@ -45,6 +55,7 @@
       // Create and save references to 3 td elements containing the Title, Year, and Actors from the AJAX response object
       // Append the td elements to the new table row
       // Append the table row to the tbody element
+      console.log(response)
     });
 
     // Repeat the above logic to add rows for two more movies of your choice
