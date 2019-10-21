@@ -40,6 +40,8 @@ signUpButton.addEventListener("click", function(event) {
     // set new submission
     console.log(user);
     localStorage.setItem("user", user);
+
+
     
     // get most recent submission
     var lastUser = localStorage.getItem("user");
@@ -49,3 +51,11 @@ signUpButton.addEventListener("click", function(event) {
     userPasswordSpan.textContent = lastUser.password;
   }
 });
+
+var myObject = {
+  myName: "Jason",
+  myHeight: "6'4",
+  weight: "That's an indelicate question",
+  bestFriends: ["Mark", "Tyler", "Marybeth"]
+}
+

@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <title>jQuery Calculator</title>
+  <meta charset="UTF-8">
+  <title>jQuery Calculator</title>
 
-    <!-- Added link to the jQuery Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-    <!-- Added a link to Bootstrap-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- Added a link to Bootstrap-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
-    <!-- Added a link to our external stylesheet-->
-    <link rel="stylesheet" href="style.css">
+  <!-- Added a link to our external stylesheet-->
+  <link rel="stylesheet" href="style.css">
 
 </head>
+
 <body>
 
-<!-- Jumbotron for Title -->
-<div class="jumbotron">
+  <!-- Jumbotron for Title -->
+  <div class="jumbotron">
     <h1 class="text-center">jQuery Calculator</h1>
     <h3 class="text-center">Perform basic mathematic operations using the power of jQuery!</h3>
-</div>
+  </div>
 
-<div class="container">
+  <div class="container">
 
     <div class="row">
 
@@ -73,18 +75,42 @@
     </div>
   </div>
 
-<script type="text/javascript">
+  <script type="text/javascript">
 
-$(document).ready(function() {
+    $(document).ready(function () {
+      var firstNum = "";
+      var secNum = "";
+      var isFirst = true;
+      var operator = "";
 
+      function init () {
+        firstNum = "";
+        secNum = "";
+        isFirst = true;
+        operator = ""
+      }
+
+<<<<<<< HEAD
 // Your code here...
 var currentEntry = 0;
 var firstNumber = 0;
 var secondNumber = 0;
 var operator = '';
 var result = 0;
+=======
+      // Your code here...
+      $(".number").on("click", function () {
+        if (isFirst) {
+          firstNum += this.value;
+        } else {
+          secNum += this.value;
+        }
+>>>>>>> cfcd16dd3a191ceee605ad1bc31289bcbf197e03
 
+        console.log(firstNum, secNum)
+      });
 
+<<<<<<< HEAD
 $('#button-1').click(function() {
   currentEntry = Number(this.innerText);
   alert(currentEntry);
@@ -167,8 +193,23 @@ function entryCheck() {
 }
 
 });
+=======
+      $(".operator").on("click", function () {
+        console.log(this.value);
+        if (isFirst) {
+          isFirst = false;
+        } 
+      })
+>>>>>>> cfcd16dd3a191ceee605ad1bc31289bcbf197e03
 
-</script>
+      $(".clear").on("click", function () {
+        init();
+      })
+
+    });
+
+  </script>
 
 </body>
+
 </html>
