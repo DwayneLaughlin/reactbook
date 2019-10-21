@@ -24,7 +24,8 @@
 
       // ============== FILL IN CODE HERE FOR STEP TWO =========================
 
-      // CODE GOES HERE
+      var imgState = $(this).data("state");
+
 
       // =============================================
 
@@ -36,7 +37,15 @@
       // image to it's data-still value and update the data-state attribute to 'still'
       // ============== FILL IN CODE HERE FOR STEP THREE =========================
 
-      // CODE GOES HERE
+      if(imgState === "still"){
+        var animations = $(this).data("animate");      
+        $(this).attr("src", animations);
+        $(this).data("state", "animate")
+        } else {
+          var stopImage = $(this).data("still");
+          $(this).attr("src", stopImage);
+          $(this).attr("data-animate", "still");
+        }
 
       // ==============================================
 

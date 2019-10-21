@@ -49,18 +49,29 @@
           url: queryURL,
           method: "GET"
         }).then(function(response) {
-
+          console.log(response)
           // Creates a div to hold the movie
+          var movieContain = $("<div>");
           // Retrieves the Rating Data
+          var rateData = response.Ratings;
+          console.log(rateData);
           // Creates an element to have the rating displayed
+          var rateBox = $("<h1>");
           // Displays the rating
+          var rateDisplay = $("<h1>").html(rateData);
+          console.log(rateDisplay);
+
           // Retrieves the release year
           // Creates an element to hold the release year
+          var releaseBox = $("<h1>");
           // Displays the release year
+          var releaseData = response.Released
           // Retrieves the plot
           // Creates an element to hold the plot
+          var plotBox = $("<h1")
           // Appends the plot
           // Creates an element to hold the image
+          var picBox = $("<h1>")
           // Appends the image
           // Puts the entire Movie above the previous movies.
         });
