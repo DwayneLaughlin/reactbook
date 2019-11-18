@@ -7,6 +7,8 @@ const doubledArray = originalArray.map(function(data) {
 console.log(doubledArray);
 console.log(originalArray);
 
+originalArray.forEach()
+
 // Complete the following
 
 // 1. A map that triples the originalArray and sets the result equal to a new `tripledArray` array

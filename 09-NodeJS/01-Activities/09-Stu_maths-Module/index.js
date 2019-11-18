@@ -1,0 +1,1 @@
+var operation = process.argv.operation

@@ -8,6 +8,9 @@ const arya = {
 
 // CODE BELOW HERE
 
+const {first, last} = arya;
+
+
 
 
 console.log(first); // <= Arya

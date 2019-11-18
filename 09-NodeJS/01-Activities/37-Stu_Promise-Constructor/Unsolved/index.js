@@ -1,19 +1,17 @@
-function waitFor(seconds, cb) {
-  if (isNaN(seconds) || seconds < 1) {
-    return cb(Error("Parameter 'seconds' must be a positive number!"));
+function waitFor(seconds){
+  return new Promise((resolve, reject) =>{
+    if (isNaN(seconds)) {
+      return reject("please put in a number");
   }
-
-  setTimeout(function() {
-    cb(null, "Success!");
-  }, seconds * 1000);
+    setTimeout(() => {
+      resolve ("touchdown")
+    }, seconds * 1000)
+  });
 }
 
-
-waitFor(2, function(err, msg) {
-  if (err) {
-    console.log(err);
-    return;
-  }
-
+waitFor(pp).then(msg => {
   console.log(msg);
+}).
+catch(err => {
+  console.log(err);
 })
