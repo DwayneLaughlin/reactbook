@@ -32,8 +32,8 @@ app.get("/", function(req, res) {
   res.send("Welcome to the Star Wars Page!");
 });
 
-app.get("/:char/:info", function(req, res) {
-  var chosen = req.params;
+app.get("/:character", function(req, res) {
+  var chosen = req.params.character;
 
   // What does this log?
   console.log(chosen);
