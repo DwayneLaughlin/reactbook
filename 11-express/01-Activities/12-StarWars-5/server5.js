@@ -62,7 +62,7 @@ app.get("/api/characters/:character", function(req, res) {
 // Create New Characters - takes in JSON input
 app.post("/api/characters", function(req, res) {
   var newCharacter = req.body;
-
+  
   console.log(newCharacter);
 
   characters.push(newCharacter);
