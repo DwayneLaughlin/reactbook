@@ -14,8 +14,7 @@ function loadImages() {
 }
 
 function createCards(data) {
-  console.log(document.getElementsByClassName("container"));
-  const container = document.getElementsByClassName("container")[0];
+  const container = document.querySelector(".container");
   container.innerHTML = "";
   let lastRow;
   const row = createEl("div", "row");

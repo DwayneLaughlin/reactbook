@@ -8,14 +8,32 @@ function createEl(htmlString = "", className) {
   return el;
 }
 
+function initLazyImages() {
+  const lazyImages = document.querySelectorAll(".lazy-image");
+
+  function onIntersection(imageEntities) {
+    imageEntities.forEach(image => {
+      if (image.isIntersecting) {
+        observer.unobserve(image.target);
+        image.target.src = image.target.dataset.src;
+      }
+    });
+  }
+
+  const observer = new IntersectionObserver(onIntersection);
+
+  lazyImages.forEach(image => observer.observe(image));
+}
+
 function loadImages() {
-  fetch("http://localhost:3000/api/images").then((res) => res.json())
-    .then((data) => createCards(data));
+  fetch("/api/images")
+    .then(res => res.json())
+    .then(data => createCards(data))
+    .then(() => initLazyImages());
 }
 
 function createCards(data) {
-  console.log(document.getElementsByClassName("container"));
-  const container = document.getElementsByClassName("container")[0];
+  const container = document.querySelector(".container");
   container.innerHTML = "";
   let lastRow;
   const row = createEl("div", "row");
@@ -36,12 +54,14 @@ function createCards(data) {
 function createCard(image) {
   const card = createEl("div", "card");
   const imageContainer = createEl("div", "card__image-container");
-  const img = createEl("img", "card-img-top card__image--cover");
-  img.setAttribute("src", image.image);
+  const img = createEl("img", "card-img-top card__image--cover lazy-image");
+  img.setAttribute(
+    "src",
+    "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mOMrgcAATsA3BT31OAAAAAASUVORK5CYII=");
+  img.setAttribute("data-src", image.image);
   img.setAttribute("alt", image.description);
 
   const cardBody = createEl("div", "card-body");
-
   const ratingFormContainer = createEl("div", "rating d-flex justify-content-start");
   ratingFormContainer.setAttribute("data-id", image._id);
   ratingFormContainer.setAttribute("data-rating", image.rating);
@@ -99,7 +119,7 @@ function createRatingForm(image) {
 
 function updateRating(event) {
   const [id, , rating] = event.currentTarget.getAttribute("for").split("-");
-  fetch(`http://localhost:3000/api/images/${id}`, {
+  fetch(`/api/images/${id}`, {
     method: "PUT",
     body: JSON.stringify({ rating }),
     headers: {
@@ -108,5 +128,4 @@ function updateRating(event) {
   }).then(function() {
     loadImages();
   });
-
 }

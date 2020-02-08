@@ -1,4 +1,5 @@
 loadImages();
+let dataArray = [];
 
 function createEl(htmlString = "", className) {
   const el = document.createElement(htmlString);
@@ -9,12 +10,15 @@ function createEl(htmlString = "", className) {
 }
 
 function loadImages() {
-  fetch("http://localhost:3000/api/images").then((res) => res.json())
-    .then((data) => createCards(data));
+  fetch("/api/images")
+    .then(res => res.json())
+    .then(data => {
+      dataArray = data;
+      createCards(dataArray);
+    });
 }
 
 function createCards(data) {
-  console.log(document.getElementsByClassName("container"));
   const container = document.getElementsByClassName("container")[0];
   container.innerHTML = "";
   let lastRow;
@@ -89,7 +93,7 @@ function createRatingForm(image) {
 
     label.appendChild(labelSpan);
     label.appendChild(star);
-    label.onclick = updateRating;
+    label.addEventListener("click", updateRating);
     form.appendChild(input);
     form.appendChild(label);
   }
@@ -99,7 +103,8 @@ function createRatingForm(image) {
 
 function updateRating(event) {
   const [id, , rating] = event.currentTarget.getAttribute("for").split("-");
-  fetch(`http://localhost:3000/api/images/${id}`, {
+
+  fetch(`/api/images/${id}`, {
     method: "PUT",
     body: JSON.stringify({ rating }),
     headers: {
@@ -107,6 +112,13 @@ function updateRating(event) {
     }
   }).then(function() {
     loadImages();
+  }).catch(function(err) {
+    console.log(err);
+    dataArray.forEach((item) => {
+      if(item._id === id) {
+        item.rating = rating;
+      }
+    });
+    createCards(dataArray);
   });
-
 }
